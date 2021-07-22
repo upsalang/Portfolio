@@ -6,6 +6,7 @@
     --color-dark-white: #bdbdbd;
     --color-pink: #fe918d;
     --color-dark-pink: #ff6863;
+    --color-light-pink: #f7cfce;
     --color-dark-grey: #4d4d4d;
     --color-grey: #616161;
     --color-light-grey: #7c7979;
@@ -27,6 +28,8 @@
     /* Size */
     --basic-margin: 8px;
     --border-radious: 5px;
+    /* Annimation */
+    --animation-duration: 200ms;
 }
 
 /* Universal tags */
@@ -162,4 +165,76 @@ p {
 
 .home__contact:hover {
     background-color: var(--color-dark-blue);
+}
+
+/* Section common */
+
+.section {
+    padding: 50px;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* About me */
+
+.about__majors {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.major__icon {
+    width: 170px;
+    height: 170px;
+    line-height: 170px;
+    font-size: 70px;
+    margin: auto;
+    color: var(--color-dark-blue);
+    border: 1px solid var(--color-dark-blue);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.major__icon:hover i {
+    color: var(--color-pink);
+    transform: scale(1.1) rotate(-15deg);
+    transition: all var(--animation-duration) ease;
+}
+
+.major__title,
+.major__description {
+    color: color var(--color-dark-grey);
+}
+
+.major__description {
+    font-size: var(--font-small);
+}
+
+.job {
+    display: flex;
+    align-items: center;
+}
+
+.job img {
+    width: 70px;
+    height: 50px;
+}
+
+.job__description {
+    margin: 0 16px;
+    text-align: left;
+}
+
+.job_name,
+.job__period {
+    color: var(--color-light-grey);
+}
+
+.job_name {
+    font-size: var(--font-small);
+}
+
+.job__period {
+    font-size: var(--font-micro);
 }
