@@ -14,7 +14,7 @@
     --color-dark-blue: #0d598b;
     --color-yellow: #fff7d1;
     --color-light-blue: rgb(228, 250, 247);
-    --color-green: rgb(10, 119, 101);
+    --color-green: rgb(126, 226, 209);
     --color-orange: #feb546;
     --color-black: #000000;
     /* Font size */
@@ -146,7 +146,7 @@ p {
 }
 
 .section__container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
 }
 
