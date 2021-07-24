@@ -13,6 +13,8 @@
     --color-blue: #198cff;
     --color-dark-blue: #0d598b;
     --color-yellow: #fff7d1;
+    --color-light-blue: rgb(228, 250, 247);
+    --color-green: rgb(10, 119, 101);
     --color-orange: #feb546;
     --color-black: #000000;
     /* Font size */
@@ -70,6 +72,7 @@ h1 {
 }
 
 h2 {
+    font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
     color: var(--color-black);
     margin: var(--basic-margin) 0;
@@ -194,14 +197,14 @@ p {
     line-height: 170px;
     font-size: 70px;
     margin: auto;
-    color: var(--color-dark-blue);
-    border: 1px solid var(--color-dark-blue);
+    color: var(--color-dark-grey);
+    border: 1px solid var(--color-dark-grey);
     border-radius: 50%;
     margin-bottom: 16px;
 }
 
 .major__icon:hover i {
-    color: var(--color-pink);
+    color: var(--color-dark-blue);
     transform: scale(1.1) rotate(-15deg);
     transition: all var(--animation-duration) ease;
 }
@@ -245,7 +248,7 @@ p {
 
 /* Skills */
 #skills {
-    background-color: var(--color-yellow);
+    background-color: var(--color-green);
 }
 
 .skillset {
@@ -316,7 +319,7 @@ p {
 
 .categories__btn:hover,
 .categories__btn.active {
-    background-color: var(--color-pink);
+    background-color: var(--color-blue);
     color: var(--color-white);
 }
 
@@ -327,7 +330,7 @@ p {
 }
 
 .category__count {
-    background-color: var(--color-orange);
+    background-color: var(--color-green);
     border-radius: 50%;
     color: var(--color-white);
     width: 24px;
@@ -399,4 +402,79 @@ p {
     margin-left: -12px;
     margin-top: 8px;
     background-color: var(--color-dark-white);
+}
+
+/* testimonials */
+
+#testimonials {
+    background-color: var(--color-light-white);
+}
+
+.testimonials {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+}
+
+.testimonial {
+    display: flex;
+    margin: 32px 0;
+}
+
+.testimonial__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.testimonial__avatar:nth-child(odd) {
+    margin-right: 40px;
+}
+
+.testimonial__avatar:nth-child(even) {
+    margin-left: 40px;
+}
+
+.testimonial__speechBubble {
+    padding: 18px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radious);
+}
+
+.testimonial__speechBubble p {
+    color: var(--color-light-grey);
+}
+
+.name a {
+    color: var(--color-dark-blue);
+}
+
+/* contact */
+
+#contact {
+    background-color: var(--color-blue);
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+    color: var(--color-white);
+}
+
+.contact__title {
+    margin: 32px 0;
+}
+
+.contact__links i {
+    font-size: var(--font-large);
+    margin: 20px;
+}
+
+.contact__links i:hover {
+    color: var(--color-green);
+    transform: scale(1.1);
+}
+.contact__links i {
+    transition: all var(--animation-duration) ease-in;
 }
