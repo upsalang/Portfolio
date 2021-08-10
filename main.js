@@ -26,16 +26,34 @@ contactBtn.addEventListener("click", () => {
     scrollToSection("#contact");
 });
 
-function scrollToSection(section) {
-    const movingTo = document.querySelector(section);
-    movingTo.scrollIntoView({ behavior: "smooth" });
-}
-
 // transparent home
 
 const home = document.querySelector("#home");
 const homeContent = document.querySelector(".homeContent");
 const homeHeight = homeContent.offsetHeight;
 window.addEventListener("scroll", () => {
-    homeContent.style.opacity = 1 - window.scrollY / homeHeight;
+    if (window.scrollY < homeHeight) {
+        homeContent.style.opacity = 1 - window.scrollY / homeHeight;
+    } else {
+        homeContent.style.opacity = 0;
+    }
 });
+
+// arrow
+
+const arrowBtn = document.querySelector(".arrowBtn");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > homeHeight / 2) {
+        arrowBtn.classList.add("visible");
+    } else {
+        arrowBtn.classList.remove("visible");
+    }
+});
+arrowBtn.addEventListener("click", () => {
+    home.scrollIntoView({ behavior: "smooth" });
+});
+
+function scrollToSection(section) {
+    const movingTo = document.querySelector(section);
+    movingTo.scrollIntoView({ behavior: "smooth" });
+}

@@ -164,6 +164,23 @@ p {
     display: none;
 }
 
+/* Arrow-up */
+.arrowBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    font-size: 50px;
+    color: var(--color-dark-pink);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+.arrowBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 /* Home */
 #home {
     background: url(img/homebackground-ellie.png) center/cover no-repeat;
