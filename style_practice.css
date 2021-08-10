@@ -322,6 +322,7 @@ p {
 .work__categories {
     display: flex;
     justify-content: center;
+
     margin: 30px;
 }
 
@@ -352,7 +353,7 @@ p {
 
 .categories__btn:hover .category__count,
 .categories__btn.active .category__count {
-    transition: all var(--animation-duration) ease;
+    transition: all var(--animation-duration) ease-in-out;
     top: 0px;
     opacity: 1;
 }
@@ -361,12 +362,25 @@ p {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 840px;
+    margin: auto;
+    opacity: 1;
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+.work__projects.project__anim {
+    opacity: 0;
+    transform: scale(0.96) translateY(30px);
 }
 
 .project {
     background-color: var(--color-light-white);
     border: 2px solid var(--color-white);
     position: relative;
+}
+
+.project.invisible {
+    display: none;
 }
 
 .project:hover .project__description {
