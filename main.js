@@ -19,6 +19,7 @@ navbarMenu.addEventListener("click", (event) => {
         return;
     }
     scrollToSection(link);
+    navbarMenu.classList.remove("open");
 
     // active btn
     const navbarItems = document.querySelectorAll(".navbar__menu__item");
@@ -26,6 +27,12 @@ navbarMenu.addEventListener("click", (event) => {
         li.classList.remove("active");
     });
     target.classList.add("active");
+});
+
+// toggle Btn
+const toggleBtn = document.querySelector(".navbar__toggle-btn");
+toggleBtn.addEventListener("click", () => {
+    navbarMenu.classList.toggle("open");
 });
 
 // home contact
