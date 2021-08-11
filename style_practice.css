@@ -146,6 +146,8 @@ p {
     margin: 0 4px;
     padding: 8px 12px;
     cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--border-radious);
 }
 
 .navbar__menu__item:hover,

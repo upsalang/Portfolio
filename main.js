@@ -19,7 +19,16 @@ navbarMenu.addEventListener("click", (event) => {
         return;
     }
     scrollToSection(link);
+
+    // active btn
+    const navbarItems = document.querySelectorAll(".navbar__menu__item");
+    navbarItems.forEach((li) => {
+        li.classList.remove("active");
+    });
+    target.classList.add("active");
 });
+
+// home contact
 
 const contactBtn = document.querySelector(".home__contact");
 contactBtn.addEventListener("click", () => {
@@ -56,7 +65,7 @@ arrowBtn.addEventListener("click", () => {
 // click event on projects
 
 const categories = document.querySelector(".work__categories");
-const categoriesBtn = document.querySelector(".categories__btn");
+const categoriesBtns = document.querySelectorAll(".categories__btn");
 const projectcframe = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project");
 
@@ -66,6 +75,16 @@ categories.addEventListener("click", (event) => {
     if (filter == null) {
         return;
     }
+    // active btn
+    categoriesBtns.forEach((categoriesBtn) => {
+        categoriesBtn.classList.remove("active");
+        if (
+            event.target === categoriesBtn ||
+            event.target.parentNode === categoriesBtn
+        )
+            categoriesBtn.classList.add("active");
+    });
+
     projectcframe.classList.add("project__anim");
 
     setTimeout(() => {
