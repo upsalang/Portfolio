@@ -21,12 +21,29 @@ navbarMenu.addEventListener("click", (event) => {
     scrollToSection(link);
     navbarMenu.classList.remove("open");
 
-    // active btn
+    // activate button by scrolling
+
+    const scrollPosition = window.scrollY;
     const navbarItems = document.querySelectorAll(".navbar__menu__item");
-    navbarItems.forEach((li) => {
-        li.classList.remove("active");
-    });
-    target.classList.add("active");
+    const homeBtn = document.querySelector(
+        `.navbar__menu__item[data-link='#work']`
+    );
+
+    switch (scrollPosition) {
+        case "1000":
+            navbarItems.forEach((li) => {
+                li.classList.remove("active");
+            });
+            homeBtn.classList.add("active");
+            break;
+    }
+
+    // // active navBtn
+    // const navbarItems = document.querySelectorAll(".navbar__menu__item");
+    // navbarItems.forEach((li) => {
+    //     li.classList.remove("active");
+    // });
+    // target.classList.add("active");
 });
 
 // toggle Btn
@@ -115,3 +132,60 @@ function scrollToSection(section) {
     const movingTo = document.querySelector(section);
     movingTo.scrollIntoView({ behavior: "smooth" });
 }
+
+// activate by scrolling
+
+// 1. get all element to use
+// 2. Observe all section through IntersectionObserver
+// 3. active menu items by the section showed
+
+const navbarItems = document.querySelectorAll(".navbar__menu__item");
+const navbarItemsArray = Array.from(navbarItems);
+const sectionIds = navbarItemsArray.map((id) => id.dataset.link);
+
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+    document.querySelector(`[data-link="${id}"]`)
+);
+
+let selectedNavIndex;
+let selectedNavItem = navItems[0];
+function selecteNavItem(selected) {
+    selectedNavItem.classList.remove("active");
+    selectedNavItem = selected;
+    selectedNavItem.classList.add("active");
+}
+
+const observerOption = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3,
+};
+const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+            // scrolling up
+            const index = sectionIds.indexOf(`#${entry.target.id}`);
+            if (entry.target.getBoundingClientRect().y < 0) {
+                selectedNavIndex = index + 1;
+            } else {
+                selectedNavIndex = index - 1;
+            }
+        }
+    });
+};
+const observer = new IntersectionObserver(observerCallback, observerOption);
+
+sections.forEach((section) => observer.observe(section));
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY === 0) {
+        selectedNavIndex = 0;
+    } else if (
+        Math.round(window.scrollY + window.innerHeight) >=
+        document.body.scrollHeight
+    ) {
+        selectedNavIndex = navItems.length - 1;
+    }
+    selecteNavItem(navItems[selectedNavIndex]);
+});
